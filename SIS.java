@@ -54,10 +54,21 @@ public class SIS {
 
         // TODO: public Student find(String id)
         public Student find(String id) { 
-            if(id == null) 
-                return null;
-            return null;
+            return find(root, id);
     
+        }
+        private Student find(Node node, String id) {
+            if(node == null) {
+                return null;
+            }else if(node.s.id.equals(id)) {
+                return node.s;
+            }else {
+                if(node.s.id.compareTo(id) > 0)
+                    return find(node.left, id);
+                else
+                    return find(node.right, id);
+            }
+            
         }
 
         // TODO: public boolean delete(String id)
