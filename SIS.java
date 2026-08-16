@@ -258,18 +258,22 @@ public class SIS {
     private static int readInt(Scanner sc, String prompt) {
         System.out.print(prompt);
         while (!sc.hasNextInt()) { sc.next(); System.out.print("Enter a number: "); }
-        return sc.nextInt();
+        int value = sc.nextInt();
+        sc.nextLine(); // consume the trailing newline left after nextInt(), so the
+                        // next readLine() call starts cleanly on the next real line
+        return value;
     }
     private static String readLine(Scanner sc, String prompt) {
         System.out.print(prompt);
         String s = sc.nextLine();
-        if (s.isEmpty()) s = sc.nextLine(); // handle pending newline after nextInt()
         return s.trim();
     }
     private static double readDouble(Scanner sc, String prompt) {
         System.out.print(prompt);
         while (!sc.hasNextDouble()) { sc.next(); System.out.print("Enter a number: "); }
-        return sc.nextDouble();
+        double value = sc.nextDouble();
+        sc.nextLine(); // consume the trailing newline left after nextDouble()
+        return value;
     }
 
     private static void addStudentUI(Scanner sc, StudentManager sm) {
