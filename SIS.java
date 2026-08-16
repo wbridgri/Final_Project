@@ -151,7 +151,7 @@ public class SIS {
   static class StudentManager {
     private final StudentBST bst = new StudentBST();
 
-    // Return true if added; false if invalid or a duplicate.
+    //return true if added; false if invalid or a duplicate.
     boolean addStudent(String id, String name, String major) {
       if (isMissing(id) || isMissing(name) || isMissing(major)) {
         return false;
@@ -161,7 +161,7 @@ public class SIS {
       return bst.insert(student);
     }
 
-    // Edit a student's name and major without changing the BST key.
+    // Edit a student's name and major without changing the BST key
     boolean editStudent(String id, String newName, String newMajor) {
       if (isMissing(id) || isMissing(newName) || isMissing(newMajor)) {
         return false;
